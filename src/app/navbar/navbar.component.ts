@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 declare const $: any;
 
@@ -8,15 +8,19 @@ declare const $: any;
     styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-    menuItems: any[];
+    habilitar: boolean;
     constructor() { }
 
     ngOnInit() {
     }
-    isMobileMenu() {
+  /**@HostListener('window:resize') onResize() {
+    // guard against resize before view is rendered
+    this.isMobileMenu();
+  } */
+      isMobileMenu() {
         if ($(window).width() > 991) {
-            return false;
+            this.habilitar = false;
         }
-        return true;
+        this.habilitar = true;
     }
 }

@@ -23,8 +23,40 @@
     height: 100%;
     max-height: 100%;
 }
-
+#collapse-button{
+  display: none;
+}
 #contenido-pantallas{
-  left:19%;
+  left:16%;
   margin-top:5%;
+}
+#menu-div{
+  display:block;
+}
+.hover{
+  background-color:  #E2E3DD;
+}
+a{
+  cursor: pointer;
+}
+
+@media (max-width: 800px) and (min-width: 100px){
+#menu-content{
+  display: none;
+}
+#contenido-pantallas{
+  left:12%;
+  margin-top:5%;
+}
+#collapse-div{
+  display: block;
+  max-width: 100%;
+    width: 100%;
+}
+#menu-content{
+  display:none;
+}
+.margin-left-10{
+  margin-right: 10%;
+}
 }
