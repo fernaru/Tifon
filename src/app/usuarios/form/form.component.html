@@ -1,0 +1,124 @@
+  <div class="card bg-dark text-white" style="margin-top: 8%;">
+    <div class="card-header">{{ titulo }}</div>
+    <div class="card-body">
+      <form (ngSubmit) = "create()">
+        <div class="form-group row">
+          <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)]="usuario.nombre" name="nombre" />
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="segundoNombre" class="col-form-label col-sm-2">Segundo Nombre</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)]="usuario.segundoNombre" name="segundoNombre" />
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="apellido" class="col-form-label col-sm-2">Apellido</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)]="usuario.apellido" name="apellido" />
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="segundoApellido" class="col-form-label col-sm-2">Segundo Apellido</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)]="usuario.segundoApellido" name="segundoApellido" />
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="username" class="col-form-label col-sm-2">Usuario</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)]="usuario.username" name="username" />
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="email" class="col-form-label col-sm-2">Email</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)]="usuario.email" name="email" />
+          </div>
+        </div>
+  
+        <div class="form-group row">
+            <label for="fechaNaci" class="col-form-label col-sm-2">Fecha de nacimiento</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" [(ngModel)]="usuario.fechaNacimiento" name="fechaNaci" />
+            </div>
+          </div>
+
+        <div class="form-group row">
+          <label for="expDocIden" class="col-form-label col-sm-2">Fecha Expedicion Documento</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)]="usuario.fechaExpeDocumento" name="expDocIden" />
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="conforEmpre" class="col-form-label col-sm-2">Fecha de Conformacion de la empresa</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)]="usuario.fechaConforEmpresa" name="conforEmpre" />
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="telefono" class="col-form-label col-sm-2">Telefono</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)]="usuario.telefono" name="telefono" />
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="celular" class="col-form-label col-sm-2">Celular</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)]="usuario.celular" name="celular" />
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="direccion" class="col-form-label col-sm-2">Direccion de residencia</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)]="usuario.direccion" name="direccion" />
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="nomEmpresa" class="col-form-label col-sm-2">Nombre de la empresa</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)]="usuario.nombreEmpresa" name="nomEmpresa" />
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="direcEmpresa" class="col-form-label col-sm-2">Direccion de la empresa</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)]="usuario.direcEmpresa" name="direcEmpresa" />
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="telefEmpresa" class="col-form-label col-sm-2">Telefono de la empresa</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)]="usuario.telefEmpresa" name="telefEmpresa" />
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label for="nit" class="col-form-label col-sm-2">Nit de la empresa</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)]="usuario.nitEmpresa" name="nit" />
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-6">
+              <button class="btn btn-primary" role="button">Crear</button>
+            </div>
+          </div>
+      </form>
+    </div>
+  </div>
