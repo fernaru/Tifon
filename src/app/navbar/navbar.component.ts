@@ -8,19 +8,8 @@ declare const $: any;
     styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-    habilitar: boolean;
     constructor() { }
 
     ngOnInit() {
-    }
-  /**@HostListener('window:resize') onResize() {
-    // guard against resize before view is rendered
-    this.isMobileMenu();
-  } */
-      isMobileMenu() {
-        if ($(window).width() > 991) {
-            this.habilitar = false;
-        }
-        this.habilitar = true;
     }
 }

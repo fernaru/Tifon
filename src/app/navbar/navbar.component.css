@@ -33,9 +33,6 @@
 #menu-div{
   display:block;
 }
-.hover{
-  background-color:  #E2E3DD;
-}
 a{
   cursor: pointer;
 }

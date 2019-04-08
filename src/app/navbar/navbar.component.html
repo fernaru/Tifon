@@ -1,57 +1,60 @@
 <div>
-  <nav class="row perfect-scrollbar-on" >
+  <nav class="row perfect-scrollbar-on">
     <div class="col-3" id="menu-content" data-image="./assets/img/sidebar-1.jpg">
       <div class="nav flex-column nav-pills" id="titulo" role="tablist" aria-orientation="vertical">
         <p>Titulo</p>
       </div>
       <div class="nav flex-column nav-pills" id="menu" role="tablist" aria-orientation="vertical">
-        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
-          aria-controls="v-pills-home" aria-selected="true">Home</a>
-        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
-          aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
-          aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
-          aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" id="dashboard" routerLink="/tifon">Dashboard</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" id="usuario" routerLink="/atlas">Adm. Usuarios</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" id="Mensajes">Messages</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" id="herramientas">Settings</a>
+          </li>
+        </ul>
       </div>
     </div>
-<!--*********************************************************************************************************-->
-<div class="pos-f-t" id="collapse-div">
-    <nav class="navbar navbar-light bg-light">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
-        aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <button type="button" class="close margin-left-10" aria-label="Close" data-toggle="collapse" data-target="#navbarToggleExternalContent"
-      aria-controls="navbarToggleExternalContent" aria-expanded="false">
+    <!--*********************************************************************************************************-->
+    <div class="pos-f-t" id="collapse-div">
+      <nav class="navbar navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+          aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <button type="button" class="close margin-left-10" aria-label="Close" data-toggle="collapse"
+          data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false">
           <span aria-hidden="true">&times;</span>
         </button>
-    </nav>
-    <div class="collapse" id="navbarToggleExternalContent">
-      <div class="col-4">
-        <div class="nav flex-column nav-pills" id="titulo-col" role="tablist" aria-orientation="horizontal">
-          <p>Titulo</p>
+      </nav>
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="col-4">
+          <div class="nav flex-column nav-pills" id="titulo-col" role="tablist" aria-orientation="horizontal">
+            <p>Titulo</p>
+          </div>
+          <div class="nav flex-column nav-pills" id="menu" role="tablist" aria-orientation="vertical">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" id="pill-dashboard" routerLink="/tifon">Dashboard</a>
+              </li>
+              <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" id="v-pills-profile-tab" routerLink="/atlas">Usuarios</a>
+              </li>
+              <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" id="v-pills-messages-tab">Messages</a>
+              </li>
+              <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" id="v-pills-settings-tab">Settings</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="nav flex-column nav-pills"  id="menu" role="tablist" aria-orientation="vertical">
-          <a class="nav-link active hover"  id="pill-dashboard" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
-          <a class="nav-link hover" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Usuarios</a>
-          <a class="nav-link hover" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-          <a class="nav-link hover" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
-        </div>
-      </div>
-    </div>
-  </div>
-<!--*********************************************************************************************************-->
-    <div class="col-9" id="contenido-pantallas">
-      <div class="tab-content" id="pantallas-menu">
-        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-          <app-dashboard></app-dashboard>
-        </div>
-        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-          <app-usuarios></app-usuarios>
-        </div>
-        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">3</div>
-        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">4</div>
       </div>
     </div>
   </nav>

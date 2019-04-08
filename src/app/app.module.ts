@@ -10,6 +10,18 @@ import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { MaterialModule } from './material/material.module';
+import { UsuarioService } from './usuarios/usuario.service';
+import { Routes, RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { FormComponent } from './usuarios/form/form.component';
+import { FormsModule } from '@angular/forms';
+
+const routes: Routes = [
+  {path: '', redirectTo: '/tifon', pathMatch: 'full'},
+  {path: 'tifon', component: DashboardComponent},
+  {path: 'atlas', component: UsuariosComponent},
+  {path: 'atlas/crearusuario', component: FormComponent},
+];
 
 @NgModule({
   declarations: [
@@ -18,15 +30,19 @@ import { MaterialModule } from './material/material.module';
     DashboardComponent,
     NavbarComponent,
     FooterComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
