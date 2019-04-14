@@ -1,16 +1,15 @@
-<div class="card border-primary mb-3" id="listUsuarios">
-    <div class="card-header">Lista de usuarios</div>
-    <div class="card-body text-primary">
-      <h5 class="card-title">Listado de Usuarios</h5> 
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [routerLink]="[ '/atlas/crearusuario' ]">Crear Usuario</button>
+<div  id="listUsuarios">
+      <h5 class="card-title text-primary">Listado de Usuarios</h5> 
+      <button class="btn btn-outline-success my-2 my-sm-0 down5" type="submit" [routerLink]="[ '/atlas/crearusuario' ]">Crear Usuario</button>
       <div *ngIf="usuarios?.length == 0" class="alert alert-info">
           No ahi Registros en la base de datos!
       </div>
-      <table class="table table-bordered table-striped" *ngIf="usuarios?.length>0">
+      <div class="table-responsive up2">
+      <table class="table" *ngIf="usuarios?.length>0">
         <thead>
-          <tr>
-            <th>Nro identidad</th>
-            <th>Tipo documento</th>
+          <tr class="border border-primary">
+            <th># Identidad</th>
+            <th>Tipo Doc.</th>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Usuario</th>
@@ -22,7 +21,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let Usuario of usuarios">
+          <tr class="border border-secondary" *ngFor="let Usuario of usuarios">
             <td>{{Usuario.numIdenti}}</td>
             <td>{{Usuario.tipoIdenti}}</td>
             <td>{{Usuario.nombre}}</td>
@@ -41,5 +40,4 @@
         </tbody>
       </table>
     </div>
-  </div>
-  
+    </div>  

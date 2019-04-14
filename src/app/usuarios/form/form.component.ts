@@ -13,6 +13,7 @@ export class FormComponent implements OnInit {
 
   public usuario: Usuario = new Usuario();
   public titulo: string = 'Crear usuario';
+  public errores: string[];
   constructor(private usuarioService: UsuarioService, private router: Router, private activateRoute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -25,9 +26,10 @@ export class FormComponent implements OnInit {
         if ( id ) {
           this.usuarioService.getUsuario(id).subscribe( (usuario) => this.usuario = usuario);
         }
-      })
+      });
   }
-  public create(): void{
+
+  public create(): void {
     this.usuarioService.create(this.usuario).
     subscribe(response => {
       this.router.navigate(['/atlas']);
@@ -37,11 +39,16 @@ export class FormComponent implements OnInit {
         type: 'success',
         confirmButtonText: 'Aceptar'
      });
+    },
+    err => {
+      this.errores = err.console.error.errors as string[];
+      console.error('Codigo de error desde el backend', err.status);
+      console.error(err.error.errors);
     }
     );
   }
 
-  public updateUser():void {
+  public updateUser(): void {
     this.usuarioService.updateUser(this.usuario).
     subscribe(response => {
       swal.fire({
@@ -50,6 +57,12 @@ export class FormComponent implements OnInit {
         type: 'success',
         confirmButtonText: 'Aceptar'
      });
-    })
+    },
+    err => {
+      this.errores = err.console.error.errors as string[];
+      console.error('Codigo de error desde el backend', err.status);
+      console.error(err.error.errors);
+    }
+    );
   }
 }

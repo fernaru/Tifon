@@ -1,25 +1,7 @@
-*{
-    box-sizing: border-box;
-}
-.card-body {
-    padding: 0.9375rem 20px;
-    position: relative;
-}
-.card-title {
-    margin-bottom: 3px;
-    margin-top: 0;
-    text-decoration: none;
-    font-size: 1.125rem;
-    line-height: 1.4em;
-    font-weight: 300;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-}
-.card-category {
-    margin: 0;
-    color: rgba(255, 255, 255, 0.62);
-}
-
 #listUsuarios{
     margin-left: 15%;
     margin-top: 5%;
+}
+.up2{
+    margin-top: 2%;
 }

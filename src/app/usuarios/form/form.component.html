@@ -1,10 +1,14 @@
-<div class="card bg-dark text-white" id="formularioUsers" style="margin-top: 8%;">
-  <div class="card-header">{{ titulo }}</div>
-  <div class="card-body">
-      <form #usuarioForm="ngForm">
-      <div class="form-group row">
-        <label for="numeroDocumento" class="col-form-label col-sm-2">Numero de documento</label>
-        <div class="col-sm-6">
+<ul class="alert alert-danger" *ngIf="errores?.length > 0">
+  <li *ngFor="let err of errores">
+    {{err}}
+  </li>
+</ul>
+<div class="container" id="formularioUsers">
+  <div class="alert alert-info">{{ titulo }}</div>
+      <form #usuarioForm="ngForm" style="margin-left: 2%;">
+      <div class="form-group row col-25 floatLeftMarginRigth">
+        <label for="numeroDocumento" class="col-form-label marginRig28">Numero de documento</label>
+        <div class="rowcontents">
           <input type="text" class="form-control" [(ngModel)]="usuario.numIdenti" name="numeroDocumento" required
             minlength="3" maxlength="35" #numDoc="ngModel"/>
             <div class="alert alert-danger" *ngIf="numDoc.invalid && (numDoc.dirty || numDoc.touched)">
@@ -17,9 +21,9 @@
               </div>
         </div>
       </div>
-      <div class="form-group row">
-        <label for="tipoDocumento" class="col-form-label col-sm-2">Tipo de documento</label>
-        <div class="col-sm-6">
+      <div class="form-group row col-25 floatLeftMarginRigth">
+        <label for="tipoDocumento" class="col-form-label marginRig28">Tipo de documento</label>
+        <div class="rowcontents">
           <input type="text" class="form-control" [(ngModel)]="usuario.tipoIdenti" name="tipoDocumento" required
             minlength="2" maxlength="2" #tipoDoc="ngModel"/>
             <div class="alert alert-danger" *ngIf="tipoDoc.invalid && (tipoDoc.dirty || tipoDoc.touched)">
@@ -29,9 +33,9 @@
               </div>
         </div>
       </div>
-      <div class="form-group row">
-        <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
-        <div class="col-sm-6">
+      <div class="form-group row col-25 floatLeftMarginRigth">
+        <label for="nombre" class="col-form-label marginRig28">Nombre</label>
+        <div class="rowcontents">
           <input type="text" class="form-control" [(ngModel)]="usuario.nombre" name="nombre" required minlength="3"
             maxlength="35" #nombre="ngModel" />
           <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
@@ -45,9 +49,9 @@
         </div>
       </div>
 
-      <div class="form-group row">
-        <label for="segundoNombre" class="col-form-label col-sm-2">Segundo Nombre</label>
-        <div class="col-sm-6">
+      <div class="form-group row col-25 floatLeftMarginRigth">
+        <label for="segundoNombre" class="col-form-label marginRig28">Segundo Nombre</label>
+        <div class="rowcontents">
           <input type="text" class="form-control" [(ngModel)]="usuario.segundoNombre" name="segundoNombre" minlength="3"
             maxlength="35" #segnombre="ngModel"/>
             <div class="alert alert-danger" *ngIf="segnombre.invalid && (segnombre.dirty || segnombre.touched)">
@@ -61,9 +65,9 @@
         </div>
       </div>
 
-      <div class="form-group row">
-        <label for="apellido" class="col-form-label col-sm-2">Apellido</label>
-        <div class="col-sm-6">
+      <div class="form-group row col-25 floatLeftMarginRigth">
+        <label for="apellido" class="col-form-label marginRig28">Apellido</label>
+        <div class="rowcontents">
           <input type="text" class="form-control" [(ngModel)]="usuario.apellido" name="apellido" required minlength="3"
             maxlength="35" #apellido="ngModel"/>
             <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
@@ -77,9 +81,9 @@
         </div>
       </div>
 
-      <div class="form-group row">
-        <label for="segundoApellido" class="col-form-label col-sm-2">Segundo Apellido</label>
-        <div class="col-sm-6">
+      <div class="form-group row col-25 floatLeftMarginRigth">
+        <label for="segundoApellido" class="col-form-label marginRig28">Segundo Apellido</label>
+        <div class="rowcontents">
           <input type="text" class="form-control" [(ngModel)]="usuario.segundoApellido" name="segundoApellido"
             minlength="3" maxlength="35" #segapellido="ngModel"/>
             <div class="alert alert-danger" *ngIf="segapellido.invalid && (segapellido.dirty || segapellido.touched)">
@@ -90,9 +94,9 @@
         </div>
       </div>
 
-      <div class="form-group row">
-        <label for="username" class="col-form-label col-sm-2">Usuario</label>
-        <div class="col-sm-6">
+      <div class="form-group row col-25 floatLeftMarginRigth">
+        <label for="username" class="col-form-label marginRig28">Usuario</label>
+        <div class="rowcontents">
           <input type="text" class="form-control" [(ngModel)]="usuario.username" name="username" required minlength="8"
             maxlength="18" #username="ngModel"/>
             <div class="alert alert-danger" *ngIf="username.invalid && (username.dirty || username.touched)">
@@ -106,9 +110,9 @@
         </div>
       </div>
 
-      <div class="form-group row">
-          <label for="roles" class="col-form-label col-sm-2">Roles</label>
-          <div class="col-sm-6">
+      <div class="form-group row col-25 floatLeftMarginRigth">
+          <label for="roles" class="col-form-label marginRig28">Roles</label>
+          <div class="rowcontents">
             <input type="text" class="form-control" [(ngModel)]="usuario.roles" name="roles" required minlength="8"
               maxlength="18" #roles="ngModel"/>
               <div class="alert alert-danger" *ngIf="roles.invalid && (roles.dirty || roles.touched)">
@@ -122,9 +126,9 @@
           </div>
         </div>
 
-      <div class="form-group row">
-        <label for="email" class="col-form-label col-sm-2">Email</label>
-        <div class="col-sm-6">
+      <div class="form-group row col-25 floatLeftMarginRigth">
+        <label for="email" class="col-form-label marginRig28">Email</label>
+        <div class="rowcontents">
           <input type="text" class="form-control" [(ngModel)]="usuario.email" name="email" email required minlength="10"
             maxlength="50" #email="ngModel"/>
             <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
@@ -141,30 +145,30 @@
         </div>
       </div>
 
-      <!-- <div class="form-group row">
-            <label for="fechaNaci" class="col-form-label col-sm-2">Fecha de nacimiento</label>
-            <div class="col-sm-6">
+      <!-- <div class="form-group row col-25 floatLeftMarginRigth">
+            <label for="fechaNaci" class="col-form-label marginRig28">Fecha de nacimiento</label>
+            <div class="rowcontents">
               <input type="text" class="form-control" [(ngModel)]="usuario.fechaNacimiento" name="fechaNaci" />
             </div>
           </div>
 
-        <div class="form-group row">
-          <label for="expDocIden" class="col-form-label col-sm-2">Fecha Expedicion Documento</label>
-          <div class="col-sm-6">
+        <div class="form-group row col-25 floatLeftMarginRigth">
+          <label for="expDocIden" class="col-form-label marginRig28">Fecha Expedicion Documento</label>
+          <div class="rowcontents">
             <input type="text" class="form-control" [(ngModel)]="usuario.fechaExpeDocumento" name="expDocIden" />
           </div>
         </div>
   
-        <div class="form-group row">
-          <label for="conforEmpre" class="col-form-label col-sm-2">Fecha de Conformacion de la empresa</label>
-          <div class="col-sm-6">
+        <div class="form-group row col-25 floatLeftMarginRigth">
+          <label for="conforEmpre" class="col-form-label marginRig28">Fecha de Conformacion de la empresa</label>
+          <div class="rowcontents">
             <input type="text" class="form-control" [(ngModel)]="usuario.fechaConforEmpresa" name="conforEmpre" />
           </div>
         </div>-->
 
-      <div class="form-group row">
-        <label for="telefono" class="col-form-label col-sm-2">Telefono</label>
-        <div class="col-sm-6">
+      <div class="form-group row col-25 floatLeftMarginRigth">
+        <label for="telefono" class="col-form-label marginRig28">Telefono</label>
+        <div class="rowcontents">
           <input type="text" class="form-control" [(ngModel)]="usuario.telefono" name="telefono" 
           minlength="6" maxlength="10" #telefono="ngModel"/>
           <div class="alert alert-danger" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
@@ -175,9 +179,9 @@
         </div>
       </div>
 
-      <div class="form-group row">
-        <label for="celular" class="col-form-label col-sm-2">Celular</label>
-        <div class="col-sm-6">
+      <div class="form-group row col-25 floatLeftMarginRigth">
+        <label for="celular" class="col-form-label marginRig28">Celular</label>
+        <div class="rowcontents">
           <input type="text" class="form-control" [(ngModel)]="usuario.celular" name="celular" required minlength="10"
             maxlength="18" #celular="ngModel"/>
             <div class="alert alert-danger" *ngIf="celular.invalid && (celular.dirty || celular.touched)">
@@ -191,9 +195,9 @@
         </div>
       </div>
 
-      <div class="form-group row">
-        <label for="direccion" class="col-form-label col-sm-2">Direccion de residencia</label>
-        <div class="col-sm-6">
+      <div class="form-group row col-25 floatLeftMarginRigth">
+        <label for="direccion" class="col-form-label marginRig28">Direccion de residencia</label>
+        <div class="rowcontents">
           <input type="text" class="form-control" [(ngModel)]="usuario.direccion" name="direccion" 
           minlength="10" maxlength="80" #direccion="ngModel"/>
           <div class="alert alert-danger" *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)">
@@ -204,9 +208,9 @@
         </div>
       </div>
 
-      <div class="form-group row">
-        <label for="nomEmpresa" class="col-form-label col-sm-2">Nombre de la empresa</label>
-        <div class="col-sm-6">
+      <div class="form-group row col-25 floatLeftMarginRigth">
+        <label for="nomEmpresa" class="col-form-label marginRig28">Nombre de la empresa</label>
+        <div class="rowcontents">
           <input type="text" class="form-control" [(ngModel)]="usuario.nombreEmpresa" name="nomEmpresa" required
             minlength="3" maxlength="35" #nomEmpresa="ngModel"/>
             <div class="alert alert-danger" *ngIf="nomEmpresa.invalid && (nomEmpresa.dirty || nomEmpresa.touched)">
@@ -220,9 +224,9 @@
         </div>
       </div>
 
-      <div class="form-group row">
-        <label for="direcEmpresa" class="col-form-label col-sm-2">Direccion de la empresa</label>
-        <div class="col-sm-6">
+      <div class="form-group row col-25 floatLeftMarginRigth">
+        <label for="direcEmpresa" class="col-form-label marginRig28">Direccion de la empresa</label>
+        <div class="rowcontents">
           <input type="text" class="form-control" [(ngModel)]="usuario.direcEmpresa" name="direcEmpresa"
            minlength="10" maxlength="80" #dirEmpresa="ngModel"/>
           <div class="alert alert-danger" *ngIf="dirEmpresa.invalid && (dirEmpresa.dirty || dirEmpresa.touched)">
@@ -233,9 +237,9 @@
         </div>
       </div>
 
-      <div class="form-group row">
-        <label for="telefEmpresa" class="col-form-label col-sm-2">Telefono de la empresa</label>
-        <div class="col-sm-6">
+      <div class="form-group row col-25 floatLeftMarginRigth">
+        <label for="telefEmpresa" class="col-form-label marginRig28">Telefono de la empresa</label>
+        <div class="rowcontents">
           <input type="text" class="form-control" [(ngModel)]="usuario.telefEmpresa" name="telefEmpresa" required
             minlength="5" maxlength="18" #telEmpresa="ngModel"/>
             <div class="alert alert-danger" *ngIf="telEmpresa.invalid && (telEmpresa.dirty || telEmpresa.touched)">
@@ -246,9 +250,9 @@
         </div>
       </div>
 
-      <div class="form-group row">
-        <label for="nit" class="col-form-label col-sm-2">Nit de la empresa</label>
-        <div class="col-sm-6">
+      <div class="form-group row col-25 floatLeftMarginRigth">
+        <label for="nit" class="col-form-label marginRig28">Nit de la empresa</label>
+        <div class="rowcontents">
           <input type="text" class="form-control" [(ngModel)]="usuario.nitEmpresa" name="nit" required minlength="8"
             maxlength="18" #nit="ngModel"/>
             <div class="alert alert-danger" *ngIf="nit.invalid && (nit.dirty || nit.touched)">
@@ -262,16 +266,15 @@
         </div>
       </div>
 
-      <div class="form-group row">
-        <div class="col-sm-6" *ngIf="usuario.fechaNacimiento == null"> 
+      <div class="btnFormularioUsuario">
+        <div  *ngIf="usuario.fechaNacimiento == null"> 
           <button class="btn btn-primary" role="button" (click)='create()' [disabled]="!usuarioForm.form.valid">Crear</button>
         </div>
-          <div class="col-sm-6" *ngIf="usuario.fechaNacimiento != null"> 
+          <div  *ngIf="usuario.fechaNacimiento != null"> 
               <button class="btn btn-primary" role="button" (click)='updateUser()' [disabled]="!usuarioForm.form.valid">Actualizar</button>
             </div>
           
         
       </div>
     </form>
-  </div>
 </div>

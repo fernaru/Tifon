@@ -24,6 +24,9 @@ export class UsuarioService {
   create(usuario: Usuario): Observable<any> {
     return this.http.post<any>(this.urlEndpoint, usuario, {headers: this.httpHeaders}).pipe(
       catchError(e => {
+        if (e.status == 400) {
+          return throwError(e);
+        }
         console.error(e.error.mensaje);
         swal.fire({
           type: 'error',
@@ -55,6 +58,9 @@ export class UsuarioService {
   updateUser(usuario: Usuario): Observable<any> {
     return this.http.put<any>(`${this.urlEndpoint}/${usuario.numIdenti}`, usuario, {headers: this.httpHeaders}).pipe(
       catchError(e => {
+        if (e.status == 400) {
+          return throwError(e);
+        }
         console.error(e.error.mensaje);
         swal.fire({
           type: 'error',
