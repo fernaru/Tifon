@@ -6,6 +6,7 @@ segundoNombre: string;
 apellido: string;
 segundoApellido: string;
 username: string;
+roles: string;
 email: string;
 createAt: string;
 modifeAt: string;

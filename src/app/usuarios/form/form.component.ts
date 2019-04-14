@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuario';
 import { UsuarioService } from '../usuario.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form',
@@ -10,17 +11,45 @@ import { Router } from '@angular/router';
 })
 export class FormComponent implements OnInit {
 
-  private usuario: Usuario = new Usuario();
-  private titulo: string = "Crear usuario";
-  constructor(private usuarioService: UsuarioService,private router: Router) { }
+  public usuario: Usuario = new Usuario();
+  public titulo: string = 'Crear usuario';
+  constructor(private usuarioService: UsuarioService, private router: Router, private activateRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.cargarUsuario();
   }
 
+  public cargarUsuario(): void {
+      this.activateRoute.params.subscribe(params => {
+        let id = params['id']
+        if ( id ) {
+          this.usuarioService.getUsuario(id).subscribe( (usuario) => this.usuario = usuario);
+        }
+      })
+  }
   public create(): void{
-    console.log("clicked");
-    this.usuarioService.create(this.usuario).subscribe(
-      response => this.router.navigate(['/atlas'])
-    )
+    this.usuarioService.create(this.usuario).
+    subscribe(response => {
+      this.router.navigate(['/atlas']);
+      swal.fire({
+        title: 'Creado',
+        text: response.mensaje+': '.concat(response.usuario.nombre),
+        type: 'success',
+        confirmButtonText: 'Aceptar'
+     });
+    }
+    );
+  }
+
+  public updateUser():void {
+    this.usuarioService.updateUser(this.usuario).
+    subscribe(response => {
+      swal.fire({
+        title: 'Creado',
+        text: response.mensaje+': '.concat(response.usuario.nombre),
+        type: 'success',
+        confirmButtonText: 'Aceptar'
+     });
+    })
   }
 }

@@ -1,50 +1,147 @@
-  <div class="card bg-dark text-white" style="margin-top: 8%;">
-    <div class="card-header">{{ titulo }}</div>
-    <div class="card-body">
-      <form (ngSubmit) = "create()">
-        <div class="form-group row">
-          <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" [(ngModel)]="usuario.nombre" name="nombre" />
+<div class="card bg-dark text-white" id="formularioUsers" style="margin-top: 8%;">
+  <div class="card-header">{{ titulo }}</div>
+  <div class="card-body">
+      <form #usuarioForm="ngForm">
+      <div class="form-group row">
+        <label for="numeroDocumento" class="col-form-label col-sm-2">Numero de documento</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="usuario.numIdenti" name="numeroDocumento" required
+            minlength="3" maxlength="35" #numDoc="ngModel"/>
+            <div class="alert alert-danger" *ngIf="numDoc.invalid && (numDoc.dirty || numDoc.touched)">
+              <div *ngIf="numDoc.errors.required">
+                    El numero de documento es Requerido
+              </div>  
+              <div *ngIf="numDoc.errors.minlength">
+                  El numero debe tener al menos 3 caracteres
+                </div>
+              </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="tipoDocumento" class="col-form-label col-sm-2">Tipo de documento</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="usuario.tipoIdenti" name="tipoDocumento" required
+            minlength="2" maxlength="2" #tipoDoc="ngModel"/>
+            <div class="alert alert-danger" *ngIf="tipoDoc.invalid && (tipoDoc.dirty || tipoDoc.touched)">
+                <div *ngIf="tipoDoc.errors.minlength">
+                  El tipo de documento debe tener al menos 2 caracteres
+                </div>
+              </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="usuario.nombre" name="nombre" required minlength="3"
+            maxlength="35" #nombre="ngModel" />
+          <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+            <div *ngIf="nombre.errors.required">
+              El nombre es Requerido
+            </div>
+            <div *ngIf="nombre.errors.minlength">
+              El nombre debe tener al menos 3 caracteres
+            </div>
           </div>
         </div>
-  
-        <div class="form-group row">
-          <label for="segundoNombre" class="col-form-label col-sm-2">Segundo Nombre</label>
+      </div>
+
+      <div class="form-group row">
+        <label for="segundoNombre" class="col-form-label col-sm-2">Segundo Nombre</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="usuario.segundoNombre" name="segundoNombre" minlength="3"
+            maxlength="35" #segnombre="ngModel"/>
+            <div class="alert alert-danger" *ngIf="segnombre.invalid && (segnombre.dirty || segnombre.touched)">
+                <div *ngIf="segnombre.errors.required">
+                  El segundo nombre es Requerido
+                </div>
+                <div *ngIf="segnombre.errors.minlength">
+                  El segundo nombre debe tener al menos 3 caracteres
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="apellido" class="col-form-label col-sm-2">Apellido</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="usuario.apellido" name="apellido" required minlength="3"
+            maxlength="35" #apellido="ngModel"/>
+            <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+                <div *ngIf="apellido.errors.required">
+                  El apellido es Requerido
+                </div>
+                <div *ngIf="apellido.errors.minlength">
+                  El apellido debe tener al menos 3 caracteres
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="segundoApellido" class="col-form-label col-sm-2">Segundo Apellido</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="usuario.segundoApellido" name="segundoApellido"
+            minlength="3" maxlength="35" #segapellido="ngModel"/>
+            <div class="alert alert-danger" *ngIf="segapellido.invalid && (segapellido.dirty || segapellido.touched)">
+                <div *ngIf="segapellido.errors.minlength">
+                  El segundo apellido debe tener al menos 3 caracteres
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="username" class="col-form-label col-sm-2">Usuario</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="usuario.username" name="username" required minlength="8"
+            maxlength="18" #username="ngModel"/>
+            <div class="alert alert-danger" *ngIf="username.invalid && (username.dirty || username.touched)">
+                <div *ngIf="username.errors.required">
+                  El Usuario es Requerido
+                </div>
+                <div *ngIf="apellido.errors.minlength">
+                  El usuario debe tener al menos 8 caracteres
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+          <label for="roles" class="col-form-label col-sm-2">Roles</label>
           <div class="col-sm-6">
-            <input type="text" class="form-control" [(ngModel)]="usuario.segundoNombre" name="segundoNombre" />
+            <input type="text" class="form-control" [(ngModel)]="usuario.roles" name="roles" required minlength="8"
+              maxlength="18" #roles="ngModel"/>
+              <div class="alert alert-danger" *ngIf="roles.invalid && (roles.dirty || roles.touched)">
+                  <div *ngIf="roles.errors.required">
+                    El rol es Requerido
+                  </div>
+                  <div *ngIf="roles.errors.minlength">
+                    El rol debe tener al menos 8 caracteres
+                  </div>
+                </div>
           </div>
         </div>
-  
-        <div class="form-group row">
-          <label for="apellido" class="col-form-label col-sm-2">Apellido</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" [(ngModel)]="usuario.apellido" name="apellido" />
-          </div>
+
+      <div class="form-group row">
+        <label for="email" class="col-form-label col-sm-2">Email</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="usuario.email" name="email" email required minlength="10"
+            maxlength="50" #email="ngModel"/>
+            <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+                <div *ngIf="email.errors.required">
+                  El email es Requerido
+                </div>
+                <div *ngIf="email.errors.minlength">
+                  El email debe tener al menos 3 caracteres
+                </div>
+                <div *ngIf="email.errors.email">
+                    El formato de email no es correcto
+                  </div>
+              </div>
         </div>
-  
-        <div class="form-group row">
-          <label for="segundoApellido" class="col-form-label col-sm-2">Segundo Apellido</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" [(ngModel)]="usuario.segundoApellido" name="segundoApellido" />
-          </div>
-        </div>
-  
-        <div class="form-group row">
-          <label for="username" class="col-form-label col-sm-2">Usuario</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" [(ngModel)]="usuario.username" name="username" />
-          </div>
-        </div>
-  
-        <div class="form-group row">
-          <label for="email" class="col-form-label col-sm-2">Email</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" [(ngModel)]="usuario.email" name="email" />
-          </div>
-        </div>
-  
-        <div class="form-group row">
+      </div>
+
+      <!-- <div class="form-group row">
             <label for="fechaNaci" class="col-form-label col-sm-2">Fecha de nacimiento</label>
             <div class="col-sm-6">
               <input type="text" class="form-control" [(ngModel)]="usuario.fechaNacimiento" name="fechaNaci" />
@@ -63,62 +160,118 @@
           <div class="col-sm-6">
             <input type="text" class="form-control" [(ngModel)]="usuario.fechaConforEmpresa" name="conforEmpre" />
           </div>
-        </div>
-  
-        <div class="form-group row">
-          <label for="telefono" class="col-form-label col-sm-2">Telefono</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" [(ngModel)]="usuario.telefono" name="telefono" />
-          </div>
-        </div>
-  
-        <div class="form-group row">
-          <label for="celular" class="col-form-label col-sm-2">Celular</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" [(ngModel)]="usuario.celular" name="celular" />
-          </div>
-        </div>
-  
-        <div class="form-group row">
-          <label for="direccion" class="col-form-label col-sm-2">Direccion de residencia</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" [(ngModel)]="usuario.direccion" name="direccion" />
-          </div>
-        </div>
-  
-        <div class="form-group row">
-          <label for="nomEmpresa" class="col-form-label col-sm-2">Nombre de la empresa</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" [(ngModel)]="usuario.nombreEmpresa" name="nomEmpresa" />
-          </div>
-        </div>
-  
-        <div class="form-group row">
-          <label for="direcEmpresa" class="col-form-label col-sm-2">Direccion de la empresa</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" [(ngModel)]="usuario.direcEmpresa" name="direcEmpresa" />
-          </div>
-        </div>
-  
-        <div class="form-group row">
-          <label for="telefEmpresa" class="col-form-label col-sm-2">Telefono de la empresa</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" [(ngModel)]="usuario.telefEmpresa" name="telefEmpresa" />
-          </div>
-        </div>
-  
-        <div class="form-group row">
-          <label for="nit" class="col-form-label col-sm-2">Nit de la empresa</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" [(ngModel)]="usuario.nitEmpresa" name="nit" />
-          </div>
-        </div>
+        </div>-->
 
-        <div class="form-group row">
-            <div class="col-sm-6">
-              <button class="btn btn-primary" role="button">Crear</button>
+      <div class="form-group row">
+        <label for="telefono" class="col-form-label col-sm-2">Telefono</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="usuario.telefono" name="telefono" 
+          minlength="6" maxlength="10" #telefono="ngModel"/>
+          <div class="alert alert-danger" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+              <div *ngIf="telefono.errors.minlength">
+                El telefono debe tener al menos 3 caracteres
+              </div>
             </div>
-          </div>
-      </form>
-    </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="celular" class="col-form-label col-sm-2">Celular</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="usuario.celular" name="celular" required minlength="10"
+            maxlength="18" #celular="ngModel"/>
+            <div class="alert alert-danger" *ngIf="celular.invalid && (celular.dirty || celular.touched)">
+                <div *ngIf="celular.errors.required">
+                  El celular es Requerido
+                </div>
+                <div *ngIf="celular.errors.minlength">
+                  El celular debe tener al menos 3 caracteres
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="direccion" class="col-form-label col-sm-2">Direccion de residencia</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="usuario.direccion" name="direccion" 
+          minlength="10" maxlength="80" #direccion="ngModel"/>
+          <div class="alert alert-danger" *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)">
+              <div *ngIf="direccion.errors.minlength">
+                El direccion debe tener al menos 10 caracteres
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="nomEmpresa" class="col-form-label col-sm-2">Nombre de la empresa</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="usuario.nombreEmpresa" name="nomEmpresa" required
+            minlength="3" maxlength="35" #nomEmpresa="ngModel"/>
+            <div class="alert alert-danger" *ngIf="nomEmpresa.invalid && (nomEmpresa.dirty || nomEmpresa.touched)">
+                <div *ngIf="nomEmpresa.errors.required">
+                  El nombre de la empresa es Requerido
+                </div>
+                <div *ngIf="nomEmpresa.errors.minlength">
+                  El nombre debe tener al menos 3 caracteres
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="direcEmpresa" class="col-form-label col-sm-2">Direccion de la empresa</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="usuario.direcEmpresa" name="direcEmpresa"
+           minlength="10" maxlength="80" #dirEmpresa="ngModel"/>
+          <div class="alert alert-danger" *ngIf="dirEmpresa.invalid && (dirEmpresa.dirty || dirEmpresa.touched)">
+              <div *ngIf="dirEmpresa.errors.minlength">
+                El direccion de la empresa debe tener al menos 10 caracteres
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="telefEmpresa" class="col-form-label col-sm-2">Telefono de la empresa</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="usuario.telefEmpresa" name="telefEmpresa" required
+            minlength="5" maxlength="18" #telEmpresa="ngModel"/>
+            <div class="alert alert-danger" *ngIf="telEmpresa.invalid && (telEmpresa.dirty || telEmpresa.touched)">
+                <div *ngIf="telEmpresa.errors.minlength">
+                  El telefono de la empresa debe tener al menos 5 caracteres
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="nit" class="col-form-label col-sm-2">Nit de la empresa</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" [(ngModel)]="usuario.nitEmpresa" name="nit" required minlength="8"
+            maxlength="18" #nit="ngModel"/>
+            <div class="alert alert-danger" *ngIf="nit.invalid && (nit.dirty || nit.touched)">
+                <div *ngIf="nit.errors.required">
+                  El nit de la empresa es Requerido
+                </div>
+                <div *ngIf="nit.errors.minlength">
+                  El nit debe tener al menos 3 caracteres
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-6" *ngIf="usuario.fechaNacimiento == null"> 
+          <button class="btn btn-primary" role="button" (click)='create()' [disabled]="!usuarioForm.form.valid">Crear</button>
+        </div>
+          <div class="col-sm-6" *ngIf="usuario.fechaNacimiento != null"> 
+              <button class="btn btn-primary" role="button" (click)='updateUser()' [disabled]="!usuarioForm.form.valid">Actualizar</button>
+            </div>
+          
+        
+      </div>
+    </form>
   </div>
+</div>

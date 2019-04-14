@@ -21,6 +21,7 @@ const routes: Routes = [
   {path: 'tifon', component: DashboardComponent},
   {path: 'atlas', component: UsuariosComponent},
   {path: 'atlas/crearusuario', component: FormComponent},
+  {path: 'atlas/crearusuario/:id', component: FormComponent},
 ];
 
 @NgModule({

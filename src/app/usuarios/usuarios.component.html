@@ -1,21 +1,24 @@
-<div class="card border-primary mb-3" id="listClientes">
-    <div class="card-header">Usuarios</div>
+<div class="card border-primary mb-3" id="listUsuarios">
+    <div class="card-header">Lista de usuarios</div>
     <div class="card-body text-primary">
       <h5 class="card-title">Listado de Usuarios</h5> 
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [routerLink]="[ '/atlas/crearusuario' ]">Crear Cliente</button>
-      <table class="table table-bordered table-striped">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [routerLink]="[ '/atlas/crearusuario' ]">Crear Usuario</button>
+      <div *ngIf="usuarios?.length == 0" class="alert alert-info">
+          No ahi Registros en la base de datos!
+      </div>
+      <table class="table table-bordered table-striped" *ngIf="usuarios?.length>0">
         <thead>
           <tr>
-            <th>Numero de identidad</th>
-            <th>Tipo de documento</th>
+            <th>Nro identidad</th>
+            <th>Tipo documento</th>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Usuario</th>
-            <th>Email</th>
-            <th>Fecha nacimiento</th>
-            <th>Telefono</th>
+            <th>Roles</th>
             <th>Celular</th>
-            <th>Nombre de la empresa</th>
+            <th>Empresa</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
           </tr>
         </thead>
         <tbody>
@@ -25,17 +28,15 @@
             <td>{{Usuario.nombre}}</td>
             <td>{{Usuario.apellido}}</td>
             <td>{{Usuario.username}}</td>
-            <td>{{Usuario.email}}</td>
-            <td>{{Usuario.fechaNacimiento}}</td>
-            <td>{{Usuario.telefono}}</td>
+            <td>{{Usuario.roles}}</td>
             <td>{{Usuario.celular}}</td>
             <td>{{Usuario.nombreEmpresa}}</td>
-            <!--<td>
-              <button type="button" name="editar" [routerLink]="['/clientes/formulario', Cliente.id]" class="btn btn-primary">Editar</button>
+            <td>
+              <button type="button" name="editar" [routerLink]="['/atlas/crearusuario', Usuario.numIdenti]" class="btn btn-primary">Editar</button>
             </td>
             <td>
-              <button type="button" name="eliminar" (click)='delete(Cliente)' class="btn btn-danger">Eliminar</button>
-            </td>-->
+              <button type="button" name="eliminar" (click)='deleteUser(Usuario)' class="btn btn-danger">Eliminar</button>
+            </td>
           </tr>
         </tbody>
       </table>
