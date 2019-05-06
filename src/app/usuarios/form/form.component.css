@@ -23,6 +23,11 @@
     max-width: 25%;
 }
 
+.col-40{
+    flex: 0 0 50%;
+    max-width: 40%;
+}
+
 .floatLeftMarginRigth{
     float: left;
     margin-right: 4%;
@@ -31,4 +36,7 @@
     float: left;
     margin-top: 12%;
     margin-left: -20%;
+}
+mat-form-field{
+    margin-right: 2%;
 }

@@ -4,6 +4,10 @@ import { UsuarioService } from '../usuario.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
 
+export interface Food {
+  value: string;
+  viewValue: string;
+}
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -15,6 +19,11 @@ export class FormComponent implements OnInit {
   public titulo: string = 'Crear usuario';
   public errores: string[];
   constructor(private usuarioService: UsuarioService, private router: Router, private activateRoute: ActivatedRoute) { }
+  foods: Food[] = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'}
+  ];
 
   ngOnInit() {
     this.cargarUsuario();
