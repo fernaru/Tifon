@@ -15,6 +15,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormComponent } from './usuarios/form/form.component';
 import { FormsModule } from '@angular/forms';
+import { ProductoComponent } from './productos/producto.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/tifon', pathMatch: 'full'},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'atlas', component: UsuariosComponent},
   {path: 'atlas/crearusuario', component: FormComponent},
   {path: 'atlas/crearusuario/:id', component: FormComponent},
+  {path: 'atlas/product', component: ProductoComponent}
 ];
 
 @NgModule({
@@ -32,7 +34,8 @@ const routes: Routes = [
     NavbarComponent,
     FooterComponent,
     UsuariosComponent,
-    FormComponent
+    FormComponent,
+    ProductoComponent
   ],
   imports: [
     BrowserModule,
